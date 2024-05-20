@@ -9,7 +9,7 @@ const MyComponent = () => {
   const [quantity, setQuantity] = useState(1);
   const [comment, setComment] = useState("");
   const [payment, setPayment] = useState("");
-  const [shipping, setShipping] = useState("");
+  const [shipping, setShipping] = useState("Delivery");
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -56,16 +56,26 @@ const MyComponent = () => {
       </select>
       <p>Payment: {payment}</p>
 
-      <label htmlFor="">
+      <label>
         <input
           type="radio"
-          value="Pickup"
+          value="Pick Up"
           checked={shipping === "Pick Up"}
           onChange={handleShippingChange}
         />
         Pickup
       </label>
-      <label htmlFor="">Delivery</label>
+      <br />
+      <label>
+        <input
+          type="radio"
+          value="Delivery"
+          checked={shipping === "Delivery"}
+          onChange={handleShippingChange}
+        />
+        Delivery
+      </label>
+      <p>Shipping: {shipping}</p>
     </div>
   );
 };
